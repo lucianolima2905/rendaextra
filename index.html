@@ -1,98 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Vincule o arquivo CSS externo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .game {
+            width: 30%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: white;
+            transition: transform 0.3s;
+        }
+
+        .game:hover {
+            transform: scale(1.05);
+        }
+
+        .game img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .game a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .slider-container {
+            width: 100%; /* Alterado para 100% da largura da tela */
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .slick-prev, .slick-next {
+            font-size: 24px;
+            color: #fff; /* Alterado para branco */
+            background-color: #333; /* Adicionado fundo escuro */
+            padding: 10px; /* Adicionado preenchimento */
+            border: none; /* Removido a borda */
+            cursor: pointer;
+        }
+
+        .slick-prev:hover, .slick-next:hover {
+            color: #666;
+        }
+
+        .slider img {
+            width: 100%; /* Alterado para 100% da largura da tela */
+            height: 500px; /* Defina a altura desejada */
+            object-fit: cover; /* Garante que a imagem cubra a altura definida */
+        }
+    </style>
+    <title>Jogos</title>
 </head>
 <body>
-    <header>
-        <a href="../index.html">
-            <img src="/img/logo.png" alt="Logo" style="width: auto; height: auto;">
-        </a>
-        <div class="buttons">
-            <button id="vip-button">
-                <img src="/img/clock.png" alt="Ícone VIP" style="max-width: 20px; margin-right: 5px;">
-                Seja VIP
-            </button>
-        </div>
-    </header>
-    <div class="container">
-        <iframe id="myIframe" src="/home/h1"></iframe>
-    </div>
-    <footer>
-        <a href="/home">
-            <img src="/img/home.png" alt="cone 1" title="Home">
-            <p>Home</p>
-        </a>
-        <a href="/contato">
-            <img src="/img/suport.png" alt="Ícone 2" title="Suport">
-            <p>Suport</p>
-        </a>
-        <a href="/painel">
-            <img src="/img/logoo.png" alt="Ícone 3" title="Hacker">
-            <p>Hacker</p>
-        </a>
-        <a href="/grupos">
-            <img src="/img/bet7k.png" alt="cone 4" title="Bet7k">
-            <p>Bet7k</p>
-        </a>
-        <a href="/perfil">
-            <img src="/img/user.png" alt="Ícone 5" title="Cassino">
-            <p>Cassino</p>
-        </a>
-    </footer>
 
-    <div class="notification" id="notification">
-        <span class="close-button" id="close-button" onclick="fecharNotificacao()">&times;</span> <!-- cone de fechar -->
-        <div class="notification-content" id="notification-content">
-            <img src="/img/pix.png" alt="Ícone Pix" style="width: 1em; height: 1em; margin-right: 0.5em; vertical-align: middle;">
-            <span id="notification-text"></span>
-        </div>
+<div class="slider-container">
+    <div class="slider">
+        <div><img src="img/image1.jpg" alt="Slider Image 1"></div>
+        <div><img src="img/image2.jpg" alt="Slider Image 2"></div>
+        <div><img src="img/image3.jpg" alt="Slider Image 3"></div>
+        <!-- Adicione mais imagens conforme necessário -->
+    </div>
+</div>
+
+<div class="game-container">
+    <div id="game1" class="game">
+        <h2>Forca</h2>
+        <a href="forca/index.html"><img src="img-jogos/forca.png" alt="Capa do Jogo 1"></a>
+        <!-- Conteúdo do Jogo 1 -->
     </div>
 
-    <!-- Inclua o áudio para notificação -->
-    <audio id="notification-sound">
-        <source src="/audio/notif.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <div id="game2" class="game">
+        <h2>Jogo 2</h2>
+        <a href="link_jogo2.html"><img src="capa_jogo2.jpg" alt="Capa do Jogo 2"></a>
+        <!-- Conteúdo do Jogo 2 -->
+    </div>
 
-    <script>
-        // Função para fechar a notificação
-        function fecharNotificacao() {
-            const notification = document.getElementById('notification');
-            notification.style.display = 'none';
-        }
+    <div id="game3" class="game">
+        <h2>Jogo 3</h2>
+        <a href="link_jogo3.html"><img src="capa_jogo3.jpg" alt="Capa do Jogo 3"></a>
+        <!-- Conteúdo do Jogo 3 -->
+    </div>
 
-        // Função para gerar notificações aleatórias
-        function gerarNotificacaoAleatoria() {
-            const nomes = ["Joo", "Maria", "Pedro", "Ana", "Carlos"];
-            const sobrenomes = ["Silva", "Santos", "Oliveira", "Pereira", "Ferreira"];
-            const ganhos = Math.floor(Math.random() * 1000);
-            const jogos = ["Fortune Tiger", "Fortune Ox", "Fortune Rabbit"];
-            const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
-            const sobrenomeAleatorio = sobrenomes[Math.floor(Math.random() * sobrenomes.length)];
-            const jogoAleatorio = jogos[Math.floor(Math.random() * jogos.length)];
+    <div id="game4" class="game">
+        <h2>Jogo 4</h2>
+        <a href="link_jogo4.html"><img src="capa_jogo4.jpg" alt="Capa do Jogo 4"></a>
+        <!-- Conteúdo do Jogo 4 -->
+    </div>
 
-            const notification = document.getElementById('notification');
-            const notificationContent = document.getElementById('notification-content');
+    <div id="game5" class="game">
+        <h2>Jogo 5</h2>
+        <a href="link_jogo5.html"><img src="capa_jogo5.jpg" alt="Capa do Jogo 5"></a>
+        <!-- Conteúdo do Jogo 5 -->
+    </div>
 
-            notificationContent.innerHTML = `<img src="/img/pix.png" alt="Ícone Pix" style="width: 1em; height: 1em; margin-right: 0.5em; vertical-align: middle;">${nomeAleatorio} ${sobrenomeAleatorio} ganhou R$ ${ganhos} no jogo ${jogoAleatorio}`;
-            notification.style.display = 'block';
+    <div id="game6" class="game">
+        <h2>Jogo 6</h2>
+        <a href="link_jogo6.html"><img src="capa_jogo6.jpg" alt="Capa do Jogo 6"></a>
+        <!-- Conteúdo do Jogo 6 -->
+    </div>
 
-            // Reproduzir o som de notificação
-            const notificationSound = document.getElementById('notification-sound');
-            notificationSound.play();
+    <div id="game7" class="game">
+        <h2>Jogo 7</h2>
+        <a href="link_jogo7.html"><img src="capa_jogo7.jpg" alt="Capa do Jogo 7"></a>
+        <!-- Conteúdo do Jogo 7 -->
+    </div>
 
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 10000);
-        }
+    <div id="game8" class="game">
+        <h2>Jogo 8</h2>
+        <a href="link_jogo8.html"><img src="capa_jogo8.jpg" alt="Capa do Jogo 8"></a>
+        <!-- Conteúdo do Jogo 8 -->
+    </div>
 
-        // Atualizar a hora a cada segundo
-        setInterval(atualizarHora, 1000);
+    <div id="game9" class="game">
+        <h2>Jogo 9</h2>
+        <a href="link_jogo9.html"><img src="capa_jogo9.jpg" alt="Capa do Jogo 9"></a>
+        <!-- Conteúdo do Jogo 9 -->
+    </div>
 
-        // Gerar notificações aleatórias a cada 20 segundos
-        setInterval(gerarNotificacaoAleatoria, 20000);
-    </script>
+    <div id="game10" class="game">
+        <h2>Jogo 10</h2>
+        <a href="link_jogo10.html"><img src="capa_jogo10.jpg" alt="Capa do Jogo 10"></a>
+        <!-- Conteúdo do Jogo 10 -->
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.slider').slick({
+            autoplay: true,
+            autoplaySpeed: 3000,
+            dots: true,
+            arrows: true,
+            prevArrow: '<button type="button" class="slick-prev">&#9664;</button>',
+            nextArrow: '<button type="button" class="slick-next">&#9654;</button>',
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false
+                    }
+                }
+            ]
+        });
+    });
+</script>
+
+<script>
+    function showGame(gameId) {
+        // Implemente a lógica de exibição do jogo conforme necessário
+    }
+</script>
+
 </body>
 </html>
